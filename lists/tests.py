@@ -94,24 +94,11 @@ class HomePageTest(TestCase):
 
 
 class ListAndItemModelsTest(TestCase):
+
 	def test_saving_and_retrieving_items(self):
 		list_ = List()
 		list_.save()
 
-		self.assertEqual(Item.objects.count(), 1)
-		new_item = Item.objects.first()
-		self.assertEqual(new_item.text, 'A new list item')
-
-		self.assertIn('A new list item', response.content.decode() )
-		expected_html = render_to_string(
-			'home.html',
-			{'new_item_text': 'A new list item'}
-		)
-		self.assertEqual(response.content.decode(), expected_html)
-
-class ItemModelTest(TestCase):
-
-	def test_saving_and_retrieving_items(self):
 		first_item = Item()
 		first_item.text = 'The first (ever) list item'
 		first_item.list = list_
@@ -131,6 +118,6 @@ class ItemModelTest(TestCase):
 		first_saved_item = saved_items[0]
 		second_saved_item = saved_items[1]
 		self.assertEqual(first_saved_item.text, 'The first (ever) list item')
-		self.assertEqual(first_saved_item.list, list_ )
+		self.assertEqual(first_saved_item.list, list_)
 		self.assertEqual(second_saved_item.text, 'Item the second')
-		self.assertEqual(second_saved_item.list, list_ )
+		self.assertEqual(second_saved_item.list, list_)

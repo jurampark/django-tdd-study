@@ -20,11 +20,12 @@ BASE_DIR = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 SECRET_KEY = '#&^2kak3g@582pbpmgal3-_ko$#v@ck3ld9llhk8$ew02hhaz5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = DEBUG
 
-ALLOWED_HOSTS = []
+# Needed when DEBUG=False
+ALLOWED_HOSTS = ['ramju.cafe24.com']
 
 
 # Application definition
